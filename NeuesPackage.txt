@@ -1,0 +1,16 @@
+Erstellen eines Paketes in ROS Melodic
+
+in Workspace/src wechseln
+catkin_create_pkg Name roscpp rospy std_msgs
+
+Änderungen in CMakeLists.txt
+----------------------------
+Auskommentieren von:
+- add_executable (hier auch alle .cpp's eintragen die man erstellt) (um Zeile 136)
+- Einfügen einer Zeile. Die beiden Zeilen müssen dann wie folgt aussehen:
+file(GLOB SOURCES "src/*.cpp")
+add_executable(${PROJECT_NAME}_node ${SOURCES})
+
+- target_link_libraries inkl. die darauf folgenden Zeilen bis zur Klammer (um Zeile 149)
+
+
